@@ -1,0 +1,29 @@
+# .NET Core
+bin/
+obj/
+
+# ASP.NET Core
+.vs/
+.vscode/
+.idea/
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+# Windows Installer files
+*.pdb
+*.dll
+# Mac
+*.DS_Store
+# Linux
+*~
+# User-specific files
+*.log
+# JetBrains Rider
+.idea/
