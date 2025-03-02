@@ -18,4 +18,4 @@ Para configurar o banco de dados local, baixe e instale o **SQL Server Express**
 Após a instalação do LocalDB, clone este repositório para o seu computador com o seguinte comando:
 
 ```bash
-git clone <URL-do-repositório>
+git clone https://github.com/denilsonbslv/EstoCareV2?tab=readme-ov-file
