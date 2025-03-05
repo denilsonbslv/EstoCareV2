@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
+    <ProjectReference Include="..\EstoCare.Infrastructure\EstoCare.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

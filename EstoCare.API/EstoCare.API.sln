@@ -5,6 +5,10 @@ VisualStudioVersion = 17.14.35821.62 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.API", "EstoCare.API.csproj", "{7CC79AAD-1039-4CE4-A013-E5A5B43D01FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.Domain", "..\EstoCare.Domain\EstoCare.Domain.csproj", "{D17D402A-C49B-4192-A9D0-3178676DD5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.Infrastructure", "..\EstoCare.Infrastructure\EstoCare.Infrastructure.csproj", "{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7CC79AAD-1039-4CE4-A013-E5A5B43D01FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CC79AAD-1039-4CE4-A013-E5A5B43D01FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CC79AAD-1039-4CE4-A013-E5A5B43D01FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17D402A-C49B-4192-A9D0-3178676DD5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17D402A-C49B-4192-A9D0-3178676DD5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17D402A-C49B-4192-A9D0-3178676DD5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17D402A-C49B-4192-A9D0-3178676DD5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
