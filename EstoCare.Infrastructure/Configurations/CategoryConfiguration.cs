@@ -8,35 +8,33 @@ namespace EstoCare.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            // Tabela
+            // Definição da tabela
             builder.ToTable("Categories");
 
-            // Chave Primária
+            // Definição da chave primária
             builder.HasKey(c => c.Id);
 
-            // Propriedades
+            // Configuração do campo Name
             builder.Property(c => c.Name)
                    .IsRequired()
-                   .HasMaxLength(200);
+                   .HasMaxLength(100);
 
+            // Configuração dos timestamps
             builder.Property(c => c.CreatedAt)
-                   .HasDefaultValueSql("GETDATE()");
+                   .IsRequired()
+                   .HasDefaultValueSql("GETUTCDATE()"); // Define a data de criação automaticamente
 
             builder.Property(c => c.UpdatedAt)
-                   .HasDefaultValueSql("GETDATE()");
+                   .IsRequired()
+                   .HasDefaultValueSql("GETUTCDATE()"); // Define a data de atualização automaticamente
 
-            // Exclusão Lógica
+            // Configuração da exclusão lógica
             builder.Property(c => c.IsDeleted)
+                   .IsRequired()
                    .HasDefaultValue(false);
 
-            // Relacionamento com Product
-            builder.HasMany(c => c.Products)
-                   .WithOne(p => p.Category)
-                   .HasForeignKey(p => p.CategoryId)
-                   .OnDelete(DeleteBehavior.Cascade); // Dependente da exclusão lógica
-
-            builder.HasIndex(p => p.Name)
-                .IsUnique();
+            // Aplica um filtro global para ignorar registros deletados
+            builder.HasQueryFilter(c => !c.IsDeleted);
         }
     }
 }

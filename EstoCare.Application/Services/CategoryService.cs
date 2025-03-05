@@ -1,4 +1,4 @@
-﻿using Estocare.Application.Interfaces;
+﻿using EstoCare.Application.Interfaces;
 using EstoCare.Domain.Entities;
 using EstoCare.Domain.Interfaces;
 
@@ -11,7 +11,10 @@ namespace EstoCare.Application.Services
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        // Injeção de dependência do repositório de categoria
+        /// <summary>
+        /// Injeção de dependência do repositório de categoria.
+        /// </summary>
+        /// <param name="categoryRepository">Repositório de categorias a ser utilizado.</param>
         public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
@@ -27,10 +30,29 @@ namespace EstoCare.Application.Services
         }
 
         /// <summary>
+        /// Recupera uma categoria específica pelo seu ID.
+        /// </summary>
+        /// <returns>Retorna uma categoria especifica pelo seu ID</returns>
+        public async Task<Category> GetCategoryByIdAsync(int id)
+        {
+            return await _categoryRepository.GetByIdAsync(id);
+        }
+
+        /// <summary>
+        /// Recupera uma Categoria específica pelo seu nome.
+        /// </summary>
+        /// <returns>Retorna uma categoria especifica pelo seu nome</returns>
+        public async Task<Category> GetCategoryByNameAsync(string name)
+        {
+            return await _categoryRepository.GetByNameAsync(name);
+        }
+
+        /// <summary>
         /// Cria uma nova categoria no sistema.
         /// </summary>
         /// <param name="category">Objeto que representa a categoria a ser criada.</param>
         /// <returns>A categoria criada.</returns>
+        /// <exception cref="InvalidOperationException">Lançado quando a categoria já existe.</exception>
         public async Task<Category> CreateCategoryAsync(Category category)
         {
             // Verificar se a categoria já existe
@@ -50,6 +72,7 @@ namespace EstoCare.Application.Services
         /// <param name="id">ID da categoria a ser atualizada.</param>
         /// <param name="category">Objeto com os dados atualizados da categoria.</param>
         /// <returns>Task que representa a operação assíncrona.</returns>
+        /// <exception cref="KeyNotFoundException">Lançado quando a categoria não for encontrada.</exception>
         public async Task UpdateCategoryAsync(int id, Category category)
         {
             var existingCategory = await _categoryRepository.GetByIdAsync(id);
@@ -73,6 +96,8 @@ namespace EstoCare.Application.Services
         /// </summary>
         /// <param name="id">ID da categoria a ser excluída.</param>
         /// <returns>Task que representa a operação assíncrona.</returns>
+        /// <exception cref="KeyNotFoundException">Lançado quando a categoria não for encontrada.</exception>
+        /// <exception cref="InvalidOperationException">Lançado quando a categoria já foi excluída.</exception>
         public async Task DeleteCategoryAsync(int id)
         {
             var category = await _categoryRepository.GetByIdAsync(id);

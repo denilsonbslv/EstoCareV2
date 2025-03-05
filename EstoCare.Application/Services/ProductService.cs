@@ -14,7 +14,10 @@ namespace EstoCare.Application.Services
     {
         private readonly IProductRepository _productRepository;
 
-        // Injeção de dependência do repositório de produto
+        /// <summary>
+        /// Injeção de dependência do repositório de produto.
+        /// </summary>
+        /// <param name="productRepository">Repositório de produtos a ser utilizado.</param>
         public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
@@ -34,6 +37,7 @@ namespace EstoCare.Application.Services
         /// </summary>
         /// <param name="id">ID do produto a ser recuperado.</param>
         /// <returns>O produto com o ID especificado.</returns>
+        /// <exception cref="KeyNotFoundException">Lançado quando o produto não for encontrado.</exception>
         public async Task<Product> GetProductByIdAsync(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -62,6 +66,7 @@ namespace EstoCare.Application.Services
         /// <param name="id">ID do produto a ser atualizado.</param>
         /// <param name="product">Objeto com os dados atualizados do produto.</param>
         /// <returns>Task que representa a operação assíncrona.</returns>
+        /// <exception cref="KeyNotFoundException">Lançado quando o produto não for encontrado.</exception>
         public async Task UpdateProductAsync(int id, Product product)
         {
             var existingProduct = await _productRepository.GetByIdAsync(id);
@@ -83,6 +88,7 @@ namespace EstoCare.Application.Services
         /// </summary>
         /// <param name="id">ID do produto a ser excluído.</param>
         /// <returns>Task que representa a operação assíncrona.</returns>
+        /// <exception cref="KeyNotFoundException">Lançado quando o produto não for encontrado.</exception>
         public async Task DeleteProductAsync(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);

@@ -1,6 +1,6 @@
 ﻿using EstoCare.Domain.Entities;
 
-namespace Estocare.Application.Interfaces
+namespace EstoCare.Application.Interfaces
 {
     /// <summary>
     /// Interface que define os métodos relacionados à manipulação de categorias.
@@ -12,6 +12,18 @@ namespace Estocare.Application.Interfaces
         /// </summary>
         /// <returns>Uma lista de categorias.</returns>
         Task<IEnumerable<Category>> GetCategoriesAsync();
+
+        /// <summary>
+        /// Recupera uma categoria específica pelo seu ID.
+        /// </summary>
+        /// <returns>A categoria com o ID especificado.</returns>
+        Task<Category> GetCategoryByIdAsync(int id);
+
+        /// <summary>
+        /// Recupera uma Categoria específica pelo seu nome.
+        /// </summary>
+        /// <returns>A categoria com o nome especificado.</returns>
+        Task<Category> GetCategoryByNameAsync(string name);
 
         /// <summary>
         /// Cria uma nova categoria no sistema.
