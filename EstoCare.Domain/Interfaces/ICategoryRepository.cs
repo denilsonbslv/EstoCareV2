@@ -10,7 +10,7 @@ namespace EstoCare.Domain.Interfaces
         /// Adiciona uma nova categoria ao repositório.
         /// </summary>
         /// <param name="category">A categoria a ser adicionada.</param>
-        Task AddAsync(Category category);
+        Task<Category> AddAsync(Category category);
 
         /// <summary>
         /// Atualiza uma categoria existente no repositório.
@@ -34,5 +34,10 @@ namespace EstoCare.Domain.Interfaces
         /// Retorna todas as categorias.
         /// </summary>
         Task<IEnumerable<Category>> GetAllAsync();
+
+        /// <summary>
+        /// Retornar uma categoria pelo seu nome.
+        /// </summary>
+        Task<Category> GetByNameAsync(string name);
     }
 }

@@ -23,10 +23,12 @@ namespace EstoCare.Infrastructure.Repositories
         /// </summary>
         /// <param name="product">Produto a ser adicionado.</param>
         /// <returns>Task representando a operação assíncrona.</returns>
-        public async Task AddAsync(Product product)
+        public async Task<Product> AddAsync(Product product)
         {
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
+
+            return product;
         }
 
         /// <summary>

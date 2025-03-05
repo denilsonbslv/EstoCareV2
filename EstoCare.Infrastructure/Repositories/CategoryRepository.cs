@@ -25,11 +25,13 @@ namespace EstoCare.Infrastructure.Repositories
         /// </summary>
         /// <param name="category">A categoria a ser adicionada.</param>
         /// <returns>Task representando a operação assíncrona.</returns>
-        public async Task AddAsync(Category category)
+        public async Task<Category> AddAsync(Category category)
         {
             // Adiciona a categoria no contexto do banco de dados
             await _context.Categories.AddAsync(category);
             await _context.SaveChangesAsync(); // Salva as alterações no banco
+
+            return category; // Retorna a categoria adicionada
         }
 
         /// <summary>
@@ -78,6 +80,16 @@ namespace EstoCare.Infrastructure.Repositories
         {
             return await _context.Categories
                 .ToListAsync(); // Retorna todas as categorias
+        }
+
+        /// <summary>
+        /// Retorna uma categoria pelo seu nome.
+        /// </summary>
+        /// <returns>Uma Categoria</returns>
+        public async Task<Category> GetByNameAsync(string name)
+        {
+            return await _context.Categories
+                .FirstOrDefaultAsync(c => c.Name == name);
         }
     }
 }

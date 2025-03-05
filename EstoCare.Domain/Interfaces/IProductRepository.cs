@@ -10,7 +10,7 @@ namespace EstoCare.Domain.Interfaces
         /// Adiciona um novo produto ao repositório.
         /// </summary>
         /// <param name="product">O produto a ser adicionado.</param>
-        Task AddAsync(Product product);
+        Task<Product> AddAsync(Product product);
 
         /// <summary>
         /// Atualiza um produto existente no repositório.

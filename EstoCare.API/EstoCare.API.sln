@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.35821.62 d17.14
+VisualStudioVersion = 17.14.35821.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.API", "EstoCare.API.csproj", "{7CC79AAD-1039-4CE4-A013-E5A5B43D01FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.Domain", "..\EstoCare.Domain\EstoCare.Domain.csproj", "{D17D402A-C49B-4192-A9D0-3178676DD5AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.Infrastructure", "..\EstoCare.Infrastructure\EstoCare.Infrastructure.csproj", "{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoCare.Application", "..\EstoCare.Application\EstoCare.Application.csproj", "{CC4EB8DE-22A7-4C38-BB3A-8CF0D6B1391B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6} = {B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +32,10 @@ Global
 		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7B037A7-98FF-4277-99A1-F7DEEAA74BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4EB8DE-22A7-4C38-BB3A-8CF0D6B1391B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4EB8DE-22A7-4C38-BB3A-8CF0D6B1391B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4EB8DE-22A7-4C38-BB3A-8CF0D6B1391B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4EB8DE-22A7-4C38-BB3A-8CF0D6B1391B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
